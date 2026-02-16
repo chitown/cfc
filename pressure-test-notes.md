@@ -1,0 +1,261 @@
+# Sports Analytics Project — Pressure Test & Iteration Notes
+
+> **Date:** 2026-02-16
+> **Context:** Full review of sports betting affiliate blueprint, pivot evaluation, and college baseball B2B SaaS direction
+> **Status:** Ready for iteration in Claude Code
+
+---
+
+## How This Package Is Organized
+
+### Source Documents (from original research)
+
+| File | What It Is |
+|------|------------|
+| `sports_betting_affiliate_ai_blueprint__1_.md` | Original master blueprint — affiliate programs, compliance, architecture, roadmap |
+| `Next_Gen_Sports_Tracking_Data_Guide.md` | Data sourcing guide across 11 sports — free vs. paid, APIs, predictive value |
+| `sports-analytics-evaluation.md` | Business opportunity evaluation — the pivot document recommending college baseball |
+| `README.md` | Project package overview and file inventory |
+| `3yr_launch_customer_acquisition_report.md` | 36-month acquisition roadmap + financial model blueprint (template) |
+| `3_year_acquisition_roadmap_package.md` | Executive summary of the acquisition plan |
+| `investor_slide_outline.md` | 10-slide investor/board deck outline |
+| `kpi_dashboard_one_pager.md` | KPI dashboard template — weekly, monthly, quarterly metrics |
+
+### New Documents (from this pressure test)
+
+| File | What It Is |
+|------|------------|
+| `pressure-test-notes.md` (this file) | Full pressure test analysis, open questions, and next steps |
+| `pressure-test-notes.txt` | Plain text version |
+| `pressure-test-notes.pdf` | PDF version |
+
+---
+
+## Pressure Test Round 1: The Original Betting Affiliate Idea
+
+### Verdict: Wrong direction for a solo founder.
+
+The original blueprint described a freemium sports betting strategy + odds intelligence platform monetized through affiliate CPA/RevShare with US sportsbooks. The research was thorough — affiliate program details, compliance framework, data sourcing guide — but five structural problems made it a bad bet:
+
+### Problem 1: Chicken-and-Egg Monetization
+
+Affiliate CPA pays when a new user signs up at a sportsbook through your link. But most sports bettors already have FanDuel/DraftKings/BetMGM accounts. The most valuable users (serious bettors who'd use a strategy/backtesting tool) are the least likely to be new sportsbook signups. You'd generate the most affiliate value from casual/newer bettors who are the least likely to pay for premium and the most likely to churn.
+
+### Problem 2: Brutal Competitive Landscape
+
+Action Network (acquired by Better Collective for ~$240M), OddsJam, Unabated, SharpApp, and others already occupy the "odds comparison + strategy" space. Several have live line shopping, CLV tracking, and +EV bet finders. The "winning wedge" (backtesting + explainable edge + workflow) is real, but you'd need to be meaningfully better — not just different — to pull users away from tools they already use.
+
+### Problem 3: Wrong Financial Model
+
+The financial model uses B2B SaaS assumptions (ACV $12K, 2-month sales cycle, Lead-to-SQL-to-Opp-to-Win funnel) for what's actually a consumer/prosumer app with freemium + affiliate monetization. The funnel, metrics, and unit economics need completely different math: CPI/CPA, activation rate, D7/D30 retention, ARPU from affiliate + subscription + ads.
+
+### Problem 4: Aggressive Timeline for Solo Builder
+
+Phase 1 (weeks 3-8) calls for odds display, line movement charts, strategy templates, bet slip generator + deep links, geo-compliance, and age gating. Even with Claude Code, that's too much surface area for one person in 5 weeks — especially since the compliance layer (geo-fencing, state-specific disclaimers, audit logging) isn't optional.
+
+### Problem 5: Affiliate Approval Uncertainty
+
+BetMGM's CPA deal requires a vendor license. RevShare requires an ancillary license. These involve state gaming commission paperwork, legal fees, and wait times. Building a product that depends on affiliate revenue before confirming you can get approved is building on sand.
+
+### The Core Question Raised
+
+Is this a product or a content/affiliate play? If it's a product, you're competing with funded startups and the build is 6+ months. If it's content/affiliate (data-driven picks newsletter, SEO-driven content with sportsbook deep links), you could start generating revenue in weeks. The evaluation document answered this question by pivoting entirely.
+
+---
+
+## Pressure Test Round 2: The College Baseball Pivot
+
+### Verdict: Conditional GO — with open questions to resolve.
+
+The evaluation document (`sports-analytics-evaluation.md`) pivoted from the betting affiliate idea to a B2B SaaS play: college baseball player valuations — "the PFF of college baseball." This is a much stronger direction. Here's the full assessment:
+
+### What's Strong
+
+**Sport selection logic is rigorous.** The comparative scorecard isn't vibes — it's grounded in actual data availability (Statcast is genuinely the best free data in sports), competitive gaps (no PFF equivalent for college baseball), buyer capacity (~300 D1 programs at $12K is a real SAM), and timing (transfer portal demand + NCAA tech rules expansion).
+
+**The StatsBomb precedent is the right comp.** Content-first (free public analysis) → consulting credibility → paid data product. Founded as a blog (2013), incorporated (2017), grew to ~$10M GBP revenue, acquired by Hudl (2024). This is exactly the bootstrapped path.
+
+**Unit economics are clean.** At $12K ACV with ~$100-200/month infrastructure, your first customer pays for the entire year. LTV:CAC of 17-50x is healthy if assumptions hold. "One customer covers your costs" means you can afford to be patient.
+
+**The timing thesis is sound.** Transfer portal creating urgent demand + NCAA expanded tech approval (2025) + public data contracting (creating commercial opportunity) + NIL budget pressure lower in baseball than football/basketball.
+
+### Open Questions That Need Answers
+
+These are the things to resolve during iteration in Claude Code. Each one should become a research task or design decision.
+
+---
+
+#### Open Question 1: Who Signs the Check?
+
+The evaluation assumes coaches are the buyer. At $12K/year, this isn't a coach swiping a credit card. It goes through athletic department procurement.
+
+**The person who needs the product** (recruiting coordinator, pitching coach, analytics intern) **is not the person who approves the spend** (AD, associate AD for finance, or compliance officer).
+
+**What to figure out:**
+- What's the actual purchasing process for analytics tools at D1 baseball programs?
+- Who has budget authority for a $12K/year software purchase?
+- What's the typical approval timeline? (This affects your sales cycle assumption.)
+- Do you need to sell two people — the user and the budget holder?
+- Are there existing budget line items this fits into (recruiting software, scouting tools)?
+
+**Research action:** Talk to 3-5 people in college baseball operations. Even informal conversations will tell you more than any market report.
+
+---
+
+#### Open Question 2: Distribution Channel for Content
+
+The evaluation says "build audience on baseball Twitter." X/Twitter's sports analytics community has fragmented since 2024 — significant migration to Bluesky, Threads, and newsletter-only.
+
+**Where college baseball coaches and recruiting coordinators actually spend time:**
+- D1Baseball.com
+- Perfect Game
+- Prep Baseball Report
+- Baseball America
+- Direct email / text from trusted sources
+- Conference-level coaching networks (SEC, ACC, Big 12 baseball communities)
+- ABCA (American Baseball Coaches Association) events and communications
+
+**What to figure out:**
+- Which 2-3 channels will you actually use to distribute free content?
+- Is there a conference or event where you could demo the free tool in person?
+- What's the equivalent of "baseball analytics Twitter" in 2026 — is it still active enough to matter?
+
+**Research action:** Identify the top 10 college baseball analytics accounts/newsletters that coaches actually follow. Model your distribution after them.
+
+---
+
+#### Open Question 3: Churn Risk From Coaching Turnover
+
+The evaluation uses 2% monthly churn (21.5% annual). College coaching staffs turn over constantly. When a head coach gets fired or a recruiting coordinator leaves, your champion at that program is gone. The new staff might not value analytics.
+
+**What to figure out:**
+- What's the annual coaching turnover rate for D1 baseball head coaches? (Probably 15-25%.)
+- When a new coach comes in, do they keep existing analytics subscriptions?
+- Can you build the product so it's sticky at the program level (data history, institutional knowledge) rather than dependent on one person?
+
+**Modeling action:** Run the financial model at 3% and 4% monthly churn and see if the math still works. If it doesn't, the pricing or stickiness strategy needs to change.
+
+---
+
+#### Open Question 4: What Makes Your Composite Better?
+
+The 6-month path says "create composite player valuation scores." But a smart college analytics intern could build a basic composite with pybaseball in a weekend.
+
+**The moat has to come from one of three places:**
+
+| Moat Type | What It Means | Difficulty | Defensibility |
+|-----------|---------------|------------|---------------|
+| **Model sophistication** | Your composite uses methods and weighting that amateurs can't replicate | Medium | Low — smart people can reverse-engineer it |
+| **Data integration** | Coaches upload their TrackMan/Rapsodo data and your platform combines it with public Statcast data | High | High — you have data nobody else has |
+| **Presentation layer** | You make complex analytics actionable for non-technical coaches (scouting reports, comp players, portal rankings) | Medium | Medium — defensible through brand and trust |
+
+**The StatsBomb answer was data integration.** They created a proprietary data collection methodology that made their data different from what anyone else had. That's what made the Hudl acquisition worth it.
+
+**What to figure out:**
+- Are you building a data product (valuations are the product) or a workflow tool (coaches upload data and get back scouting reports)?
+- Would coaches trust a platform enough to upload their proprietary TrackMan data?
+- If the moat is presentation/actionability, what does a scouting report look like that a coach would actually use during a recruiting call?
+
+**Design action:** Mock up one player profile / scouting report. Show it to a coach. See if they'd pay for it.
+
+---
+
+#### Open Question 5: Financial Model Needs Fixing Before Showing Anyone
+
+The evaluation lists 10 financial model gaps. The most important:
+
+**Fix this week:**
+1. Fix the customers_end column (fractional wins with 0 customers is confusing)
+2. Add explicit CPL assumption
+3. Build the P&L / cash flow tab
+
+**Fix before any external conversation:**
+4. Compute CAC, LTV, payback, LTV:CAC in the model
+5. Add TAM/SAM/SOM using the buyer universe data
+6. Run the model at 3-4% monthly churn (college coaching turnover scenario)
+
+---
+
+## Recommended Iteration Sequence in Claude Code
+
+Use this as your `/work` starting point. Each item maps to a Leviathan lifecycle stage.
+
+### Phase 1: Fix the Foundation (Week 1)
+
+| Task | Lev Stage | What to Do |
+|------|-----------|------------|
+| Fix financial model | Manifesting | Fix customers_end, add CPL, build P&L tab, add unit economics |
+| Run churn scenarios | Manifesting | Model at 2%, 3%, 4% monthly churn — see where math breaks |
+| Add TAM/SAM/SOM | Manifesting | Wire buyer universe into the model |
+
+### Phase 2: Design the Product (Week 2-3)
+
+| Task | Lev Stage | What to Do |
+|------|-----------|------------|
+| Define the composite model | Crystallizing | What inputs, what weights, what output format? |
+| Mock up a player profile | Crystallizing | One page: player name, valuation score, Statcast data, comps, scouting notes |
+| Decide: data product vs. workflow tool | Crystallizing | This is the biggest strategic decision — commit to one |
+| Map the buyer journey | Classified | Who finds you → who evaluates → who approves → who signs |
+
+### Phase 3: Build the Free Tool (Week 3-6)
+
+| Task | Lev Stage | What to Do |
+|------|-----------|------------|
+| Data ingestion pipeline | Manifesting | pybaseball + NCAA stats → Supabase |
+| Composite valuation model | Manifesting | Build the scoring algorithm |
+| Public website with rankings | Manifesting | Transfer portal rankings, player profiles, weekly updates |
+| Content distribution setup | Manifesting | Newsletter + 2 social channels + SEO foundation |
+
+### Phase 4: Validate With Real Buyers (Month 2-3)
+
+| Task | Lev Stage | What to Do |
+|------|-----------|------------|
+| Cold outreach to 10 coaches | Captured → Classified | Use the free tool as the hook |
+| Collect feedback | Classified | What do they actually want? What's missing? What would they pay for? |
+| Iterate on product | Manifesting | Build what coaches asked for, not what you assumed |
+
+---
+
+## Key Decision Log
+
+Decisions made or pending. Update this as you iterate.
+
+| Decision | Status | Choice | Rationale |
+|----------|--------|--------|-----------|
+| Sport selection | DECIDED | College baseball | Best free data, clear gap, transfer portal demand, no dominant incumbent |
+| Business model | DECIDED | B2B SaaS, $12K ACV | Clean unit economics, manageable customer count |
+| Hiring plan | DECIDED | Zero hires until profitable | Original model doesn't work for bootstrapped founder |
+| Data product vs. workflow tool | PENDING | — | Biggest open strategic question |
+| Distribution channels | PENDING | — | Need to identify where coaches actually are |
+| Churn assumption | PENDING | — | Need to model coaching turnover scenarios |
+| MVP scope | PENDING | — | Free public rankings site is the starting point |
+
+---
+
+## Files to Bring Into Claude Code
+
+Copy this entire package to your project directory:
+
+```bash
+cd ~/cfc
+# Copy all files from this package into the project
+```
+
+Then start with:
+
+```bash
+claude
+```
+
+And:
+
+```
+/work — I'm building a college baseball player valuations B2B SaaS product.
+Read pressure-test-notes.md for full context. Start with Phase 1: 
+fix the financial model.
+```
+
+---
+
+*Package created: 2026-02-16*
+*Next review: After Phase 1 completion*
